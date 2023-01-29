@@ -4,6 +4,7 @@ import Button from "../components/button/Button";
 import { useState } from "react";
 import styled from "styled-components";
 import { sidekickThemeLight } from "../../stitches.config";
+import { BellIcon } from "@heroicons/react/24/solid";
 
 export default function Home() {
   const [count, setCount] = useState(0);
@@ -30,6 +31,7 @@ export default function Home() {
           loading
         </Button>
         <Button fullWidth>fullWidth</Button>
+        <Button leadingIcon={<BellIcon />}>leadingIcon</Button>
         <div className={sidekickThemeLight}>
           <Button>sidekickButton</Button>
         </div>

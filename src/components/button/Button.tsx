@@ -1,6 +1,7 @@
 import type * as Stitches from "@stitches/react";
 import { ButtonHTMLAttributes } from "react";
 import { styled, theme } from "../../../stitches.config";
+import { BeakerIcon } from "@heroicons/react/24/solid";
 
 type StyledButtonVariants = Stitches.VariantProps<typeof StyledButton>;
 
@@ -26,7 +27,12 @@ const Button = (props: ButtonProps) => {
           padding: `0 ${leadingIcon ? "20px" : "11px"}`,
         }}
       >
-        <span>l. </span>
+        <BeakerIcon
+          style={{
+            height: 14,
+            width: 24,
+          }}
+        />
         {children}
       </StyledButton>
     );
@@ -62,6 +68,12 @@ const StyledButton = styled("button", {
   "&:disabled": {
     cursor: "not-allowed",
     opacity: 0.5,
+  },
+
+  "& > svg": {
+    marginRight: "6px",
+    height: "14px",
+    width: "24px",
   },
 
   variants: {
