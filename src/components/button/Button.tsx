@@ -4,8 +4,13 @@ import { styled, theme } from "../../../stitches.config";
 
 type StyledButtonVariants = Stitches.VariantProps<typeof StyledButton>;
 
-type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> &
-  StyledButtonVariants;
+interface ButtonProps
+  extends ButtonHTMLAttributes<HTMLButtonElement>,
+    StyledButtonVariants {
+  children: React.ReactNode;
+  className?: string;
+  leadingIcon?: React.ReactNode;
+}
 
 const Button = (props: ButtonProps) => {
   const { children, className, ...rest } = props;
@@ -24,7 +29,6 @@ const StyledButton = styled("button", {
   padding: "0 26px",
   border: "2px solid transparent",
   color: theme.colors.white,
-  backgroundColor: theme.colors.brand500,
   cursor: "pointer",
   transition: "all 200ms ease",
   outline: "none",
@@ -37,14 +41,9 @@ const StyledButton = styled("button", {
   alignItems: "center",
   justifyContent: "center",
 
-  "&:hover:enabled, &:focus-visible:enabled": {
-    backgroundColor: theme.colors.black,
-  },
-
   "&:disabled": {
-    backgroundColor: theme.colors.white,
-    color: theme.colors.black,
     cursor: "not-allowed",
+    opacity: 0.5,
   },
 
   variants: {
@@ -52,11 +51,33 @@ const StyledButton = styled("button", {
     variant: {
       primary: {
         backgroundColor: theme.colors.brand500,
-        color: "$black",
+        color: theme.colors.white,
+
+        "&:hover:enabled, &:focus-visible:enabled": {
+          backgroundColor: theme.colors.brand600,
+        },
+
+        "&:disabled": {
+          backgroundColor: theme.colors.neutral400,
+          color: theme.colors.neutral600,
+          borderColor: "transparent",
+        },
       },
       secondary: {
         backgroundColor: "transparent",
-        color: "$turq",
+        color: theme.colors.neutral900,
+
+        borderColor: theme.colors.neutral900,
+
+        "&:hover:enabled, &:focus-visible:enabled": {
+          backgroundColor: theme.colors.neutral200,
+        },
+
+        "&:disabled": {
+          backgroundColor: "transparent",
+          color: theme.colors.neutral500,
+          borderColor: theme.colors.neutral400,
+        },
       },
     },
 
@@ -68,9 +89,8 @@ const StyledButton = styled("button", {
     // loading prop
     loading: {
       true: {
-        // backgroundColor: "$gray",
-        // color: "$black",
         cursor: "not-allowed",
+        padding: 0,
       },
     },
   },
@@ -82,7 +102,6 @@ const StyledButton = styled("button", {
       css: {
         backgroundColor: "$gray",
         color: "$black",
-        // cursor: "not-allowed",
       },
     },
     {
@@ -91,7 +110,6 @@ const StyledButton = styled("button", {
       css: {
         backgroundColor: "$gray",
         color: "$black",
-        // cursor: "not-allowed",
       },
     },
   ],
