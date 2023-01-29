@@ -1,17 +1,50 @@
-import { createStitches } from "@stitches/react";
+import { createStitches, createTheme } from "@stitches/react";
+
+const eRenaThemeColorsLight = {
+  brand50: "#e5f0ff",
+  brand100: "#d1e5ff",
+  brand200: "#9cc7ff",
+  brand300: "#69aaff",
+  brand400: "#3d91ff",
+  brand500: "#006cfa",
+  brand600: "#005bd1",
+  brand700: "#004db2",
+  brand800: "#003e8f",
+  brand900: "#00306e",
+  brand950: "#002352",
+};
+
+const sidekickThemeColorsLight = {
+  brand50: "#efe8fc",
+  brand100: "#dbccf9",
+  brand200: "#a180e4",
+  brand300: "#8c60e4",
+  brand400: "#8749e4",
+  brand500: "#7200e4",
+  brand600: "#6200c2",
+  brand700: "#5100a3",
+  brand800: "#420085",
+  brand900: "#330366",
+  brand950: "#210242",
+};
 
 export const { styled, theme } = createStitches({
   theme: {
     colors: {
-      black: "rgba(19, 19, 21, 1)",
-      white: "rgba(255, 255, 255, 1)",
-      gray: "rgba(128, 128, 128, 1)",
-      blue: "rgba(3, 136, 252, 1)",
-      red: "rgba(249, 16, 74, 1)",
-      yellow: "rgba(255, 221, 0, 1)",
-      pink: "rgba(232, 141, 163, 1)",
-      turq: "rgba(0, 245, 196, 1)",
-      orange: "rgba(255, 135, 31, 1)",
+      black: "#000000",
+      white: "#ffffff",
+      neutral25: "#121212",
+      neutral50: "#1e1e1e",
+      neutral100: "#232323",
+      neutral200: "#272727",
+      neutral300: "#2c2c2c",
+      neutral400: "#333333",
+      neutral500: "#6c6c6c",
+      neutral600: "#a0a0a0",
+      neutral700: "#bdbdbd",
+      neutral800: "#cbcbcb",
+      neutral900: "#e0e0e0",
+      ...eRenaThemeColorsLight,
     },
     fonts: {
       sans: "Inter, sans-serif",
@@ -55,4 +88,64 @@ export const { styled, theme } = createStitches({
     zIndices: {},
     transitions: {},
   },
+});
+
+export const sidekickThemeLight = createTheme("sidekick-light", {
+  colors: {
+    black: "#000000",
+    white: "#ffffff",
+    neutral25: "#121212",
+    neutral50: "#1e1e1e",
+    neutral100: "#232323",
+    neutral200: "#272727",
+    neutral300: "#2c2c2c",
+    neutral400: "#333333",
+    neutral500: "#6c6c6c",
+    neutral600: "#a0a0a0",
+    neutral700: "#bdbdbd",
+    neutral800: "#cbcbcb",
+    neutral900: "#e0e0e0",
+    ...sidekickThemeColorsLight,
+  },
+  fonts: {
+    sans: "Inter, sans-serif",
+  },
+  fontSizes: {
+    1: "12px",
+    2: "14px",
+    3: "16px",
+    4: "20px",
+    5: "24px",
+    6: "32px",
+  },
+  space: {
+    1: "4px",
+    2: "8px",
+    3: "16px",
+    4: "32px",
+    5: "64px",
+    6: "128px",
+  },
+  sizes: {
+    1: "4px",
+    2: "8px",
+    3: "16px",
+    4: "32px",
+    5: "64px",
+    6: "128px",
+  },
+  radii: {
+    1: "2px",
+    2: "4px",
+    3: "8px",
+    round: "9999px",
+  },
+  fontWeights: {},
+  lineHeights: {},
+  letterSpacings: {},
+  borderWidths: {},
+  borderStyles: {},
+  shadows: {},
+  zIndices: {},
+  transitions: {},
 });

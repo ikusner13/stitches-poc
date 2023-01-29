@@ -3,6 +3,7 @@ import styles from "@/styles/Home.module.css";
 import Button from "../components/button/Button";
 import { useState } from "react";
 import styled from "styled-components";
+import { sidekickThemeLight } from "../../stitches.config";
 
 export default function Home() {
   const [count, setCount] = useState(0);
@@ -23,6 +24,15 @@ export default function Home() {
           test
         </Button>
         <StyledButton>test</StyledButton>
+        <Button variant="primary">primary</Button>
+        <Button variant="secondary">secondary</Button>
+        <Button variant="primary" loading>
+          loading
+        </Button>
+        <Button fullWidth>fullWidth</Button>
+        <div className={sidekickThemeLight}>
+          <Button>sidekickButton</Button>
+        </div>
         <h1>{count}</h1>
       </main>
     </>
