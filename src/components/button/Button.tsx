@@ -13,11 +13,29 @@ interface ButtonProps
 }
 
 const Button = (props: ButtonProps) => {
-  const { children, className, ...rest } = props;
+  const { children, className, loading, leadingIcon, ...rest } = props;
+
+  if (loading) {
+    return (
+      <StyledButton
+        {...rest}
+        className={className}
+        loading
+        disabled
+        css={{
+          padding: `0 ${leadingIcon ? "20px" : "11px"}`,
+        }}
+      >
+        <span>l. </span>
+        {children}
+      </StyledButton>
+    );
+  }
 
   return (
     <StyledButton className={className} {...rest}>
-      {props.children}
+      {leadingIcon && leadingIcon}
+      {children}
     </StyledButton>
   );
 };
