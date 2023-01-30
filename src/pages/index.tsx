@@ -2,7 +2,7 @@ import Head from "next/head";
 import styles from "@/styles/Home.module.css";
 import Button from "../components/button/Button";
 import { useState } from "react";
-import styled from "styled-components";
+import styledComponent from "styled-components";
 import { sidekickThemeLight } from "../../stitches.config";
 import { BellIcon } from "@heroicons/react/24/solid";
 
@@ -24,7 +24,7 @@ export default function Home() {
         >
           test
         </Button>
-        <StyledButton>test</StyledButton>
+        <StyledButton>Styled Components styled Button</StyledButton>
         <Button variant="primary">primary</Button>
         <Button variant="secondary">secondary</Button>
         <Button variant="primary" loading>
@@ -41,7 +41,7 @@ export default function Home() {
   );
 }
 
-const StyledButton = styled(Button)`
+const StyledButton = styledComponent(Button)`
   border-radius: 4px;
   font-size: 16px;
   padding: 8px 12px;

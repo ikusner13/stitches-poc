@@ -47,9 +47,9 @@ const Button = (props: ButtonProps) => {
 };
 
 const StyledButton = styled("button", {
-  // base styles
+  /* BASE STYLES */
+
   borderRadius: theme.radii[3],
-  // fontSize: theme.fontSizes[2],
   padding: "0 26px",
   border: "2px solid transparent",
   color: theme.colors.white,
@@ -76,8 +76,9 @@ const StyledButton = styled("button", {
     width: "24px",
   },
 
+  /* VARIANTS */
+
   variants: {
-    // button variants
     variant: {
       primary: {
         backgroundColor: theme.colors.brand500,
@@ -116,7 +117,7 @@ const StyledButton = styled("button", {
         width: "100%",
       },
     },
-    // loading prop
+
     loading: {
       true: {
         cursor: "not-allowed",
